@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ConnectHub - Find Your Connection</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            ❤️ ConnectHub
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="#discover">Discover</a>
+
+            <a href="#features">Features</a>
+
+            <a href="#contact">Contact</a>
+
+            <a href="#">Login</a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Find Someone You Connect With ❤️</h1>
+
+            <p>
+                Meet new people, build meaningful connections
+                and discover someone special.
+            </p>
+
+            <a href="#discover" class="hero-button">
+                Discover People
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Discover People Section -->
+
+    <section class="dating-section" id="discover">
+
+        <div class="page-header">
+
+            <h1>Discover People</h1>
+
+            <p>
+                Meet interesting people and start a conversation.
+            </p>
+            <section class="create-profile">
+    <h2>Create Your Profile</h2>
+
+    <form id="profile-form">
+
+    <div class="photo-upload">
+        <label for="photo">📷 Add your profile photo</label>
+        <input type="file" id="photo" accept="image/*">
+        <img id="photo-preview" src="" alt="Photo preview">
+    </div>
+
+    <label for="name">Your name</label>
+    <input type="text" id="name" placeholder="Enter your full name">
+
+    <label for="age">Age</label>
+    <input type="number" id="age" placeholder="Enter your age">
+
+    <label for="location">Location</label>
+    <input type="text" id="location" placeholder="e.g. Mzuzu">
+
+    <label for="looking">What are you looking for?</label>
+    <select id="looking">
+        <option value="">Select what you're looking for</option>
+        <option value="Friendship">Friendship</option>
+        <option value="Relationship">Relationship</option>
+        <option value="Casual dating">Casual dating</option>
+        <option value="Something serious">Something serious</option>
+        <option value="Networking">Networking</option>
+    </select>
+
+    <label for="preferences">What do you prefer?</label>
+    <textarea id="preferences" placeholder="Tell people what you like..."></textarea>
+
+    <label for="bio">About you</label>
+    <textarea id="bio" placeholder="Write something about yourself..."></textarea>
+
+   <button type="submit" id="profile-submit-btn">Create Profile</button>
+
+</form>
+</section>
+
+        </div>
+
+<div class="profile-search">
+
+    <input
+        type="text"
+        id="profile-search"
+        placeholder="🔎 Search profiles..."
+    >
+
+    <select id="looking-filter">
+        <option value="">Looking for: All</option>
+        <option value="Friendship">Friendship</option>
+        <option value="Relationship">Relationship</option>
+        <option value="Casual dating">Casual dating</option>
+        <option value="Something serious">Something serious</option>
+        <option value="Networking">Networking</option>
+    </select>
+
+    <select id="location-filter">
+        <option value="">Location: All</option>
+        <option value="Lilongwe">Lilongwe</option>
+        <option value="Blantyre">Blantyre</option>
+        <option value="Mzuzu">Mzuzu</option>
+        <option value="Zomba">Zomba</option>
+        <option value="Other">Other</option>
+    </select>
+<select id="profile-sort">
+    <option value="newest">Sort: Newest</option>
+    <option value="name">Name: A–Z</option>
+    <option value="age">Age: Youngest</option>
+</select>
+</div>
+
+<div class="profile-container" id="Profiles">
+
+
+    <!-- Sarah -->
+
+    <div class="profile-card">
+
+        <div class="profile-image">
+            <img src="images/sarah.jpg" alt="Sarah's profile photo">
+        </div>
+
+        <div class="online-status">
+    ● <span class="status-text">Online</span>
+</div>
+
+        <h3>Sarah, 21</h3>
+
+        <p class="location">📍 Lilongwe, Malawi</p>
+
+        <p class="bio">
+            Music lover who enjoys travelling,
+            photography and meeting new people.
+        </p>
+
+        <div class="interests">
+            <span>🎵 Music</span>
+            <span>✈️ Travel</span>
+            <span>📸 Photography</span>
+        </div>
+
+        <div class="profile-actions">
+    <button type="button" class="like-btn">❤️ Like</button>
+    <button type="button" class="connect-btn" onclick="toggleConnect(this)">
+    🤝 Connect
+</button>
+</div>
+
+    </div>
+
+
+
+    <!-- David -->
+
+    <div class="profile-card">
+
+        <div class="profile-image">
+            <img src="images/david.jpg" alt="David's profile photo">
+        </div>
+
+        <div class="online-status">
+            ● Online
+        </div>
+
+        <h3>David, 23</h3>
+
+        <p class="location">📍 Blantyre, Malawi</p>
+
+        <p class="bio">
+            Football fan, music enthusiast and
+            someone who enjoys good conversations.
+        </p>
+
+        <div class="interests">
+            <span>⚽ Football</span>
+            <span>🎵 Music</span>
+            <span>🎮 Gaming</span>
+        </div>
+
+        <div class="profile-actions">
+    <button type="button" class="like-btn">❤️ Like</button>
+    <button type="button" class="connect-btn" onclick="toggleConnect(this)">
+    🤝 Connect
+</button>
+</div>
+
+
+    </div>
+
+
+
+    <!-- Mary -->
+
+    <div class="profile-card">
+
+        <div class="profile-image">
+            <img src="images/mary.jpg" alt="Mary's profile photo">
+        </div>
+
+        <div class="online-status">
+            ● Online
+        </div>
+
+        <h3>Mary, 22</h3>
+
+        <p class="location">📍 Mzuzu, Malawi</p>
+
+        <p class="bio">
+            Photography lover who enjoys travelling,
+            reading and discovering new places.
+        </p>
+
+        <div class="interests">
+            <span>📸 Photography</span>
+            <span>🌍 Travel</span>
+            <span>📚 Reading</span>
+        </div>
+
+        <div class="profile-actions">
+    <button type="button" class="like-btn">❤️ Like</button>
+    <button type="button" class="connect-btn" onclick="toggleConnect(this)">
+    🤝 Connect
+</button>
+</div>
+
+
+    </div>
+
+
+</div>
+
+    
+          
+
+    </section>
+
+
+
+    <!-- Features Section -->
+
+    <section class="features" id="features">
+
+        <h2>Why ConnectHub?</h2>
+
+
+        <div class="feature-container">
+
+
+            <!-- Feature 1 -->
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    ❤️
+                </div>
+
+                <h3>Meaningful Connections</h3>
+
+                <p>
+                    Discover people who share your interests
+                    and values.
+                </p>
+
+            </div>
+
+
+
+            <!-- Feature 2 -->
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🔒
+                </div>
+
+                <h3>Safe & Simple</h3>
+
+                <p>
+                    A simple platform designed to make
+                    connecting easier.
+                </p>
+
+            </div>
+
+
+
+            <!-- Feature 3 -->
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    💬
+                </div>
+
+                <h3>Easy Communication</h3>
+
+                <p>
+                    Connect with people and start meaningful
+                    conversations.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Call To Action Section -->
+
+    <section class="cta">
+
+        <h2>Ready to Make a Connection?</h2>
+
+        <p>
+            Start discovering people today.
+        </p>
+
+        <a href="#discover">
+            Explore Profiles
+        </a>
+
+    </section>
+
+
+
+    <!-- Footer -->
+
+    <footer id="contact">
+
+        <div class="footer-content">
+
+            <h3>❤️ ConnectHub</h3>
+
+            <p>
+                Connecting people, one conversation at a time.
+            </p>
+
+            <p>
+                © 2026 ConnectHub. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+<script>
+const photoInput = document.getElementById("photo");
+const photoPreview = document.getElementById("photo-preview");
+
+let savedProfiles = JSON.parse(localStorage.getItem("connectHubProfiles")) || [];
+
+// PROFILE PHOTO UPLOAD
+
+photoInput.addEventListener("change", function(event) {
+
+    const file = event.target.files[0];
+
+    if (!file) {
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+
+        const image = new Image();
+
+        image.onload = function() {
+
+            const canvas =
+                document.createElement("canvas");
+
+            const maxSize = 800;
+
+            let width = image.width;
+            let height = image.height;
+
+            // Resize large images while keeping
+            // their original proportions.
+            if (width > maxSize || height > maxSize) {
+
+                if (width > height) {
+                    height =
+                        Math.round(
+                            height *
+                            (maxSize / width)
+                        );
+
+                    width = maxSize;
+
+                } else {
+                    width =
+                        Math.round(
+                            width *
+                            (maxSize / height)
+                        );
+
+                    height = maxSize;
+                }
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+
+            const context =
+                canvas.getContext("2d");
+
+            context.drawImage(
+                image,
+                0,
+                0,
+                width,
+                height
+            );
+
+            // Compress the image to JPEG.
+            const compressedPhoto =
+                canvas.toDataURL(
+                    "image/jpeg",
+                    0.75
+                );
+
+            photoPreview.src =
+                compressedPhoto;
+
+            photoPreview.style.display =
+                "block";
+
+            // Store the compressed image
+            // for Create Profile to use.
+            photoPreview.dataset.compressedPhoto =
+                compressedPhoto;
+        };
+
+        image.src = e.target.result;
+    };
+
+    reader.readAsDataURL(file);
+});
+
+
+// GRAMMATICAL CAPITALIZATION
+
+function capitalizeSentences(text) {
+    return text.replace(/(^\s*\w|[.!?]\s*\w)/g, function(letter) {
+        return letter.toUpperCase();
+    });
+}
+
+function capitalizeName(text) {
+    return text
+        .toLowerCase()
+        .replace(/\b\w/g, function(letter) {
+            return letter.toUpperCase();
+        });
+}
+
+function capitalizeLocation(text) {
+    return text
+        .toLowerCase()
+        .replace(/\b\w/g, function(letter) {
+            return letter.toUpperCase();
+        });
+}
+
+
+// NAME
+const nameField = document.getElementById("name");
+
+nameField.addEventListener("input", function() {
+    this.value = capitalizeName(this.value);
+});
+
+
+// LOCATION
+const locationField = document.getElementById("location");
+
+locationField.addEventListener("input", function() {
+    this.value = capitalizeLocation(this.value);
+});
+
+
+// PREFERENCES AND BIO
+const preferencesField = document.getElementById("preferences");
+const bioField = document.getElementById("bio");
+
+[preferencesField, bioField].forEach(function(field) {
+    field.addEventListener("input", function() {
+        this.value = capitalizeSentences(this.value);
+    });
+});
+
+
+// CREATE PROFILE CARD
+function createProfileCard(profile) {
+
+    const profileCard = document.createElement("div");
+    profileCard.classList.add("profile-card");
+
+    // Store creation time
+    if (profile.createdAt) {
+        profileCard.dataset.createdAt = profile.createdAt;
+    }
+
+    profileCard.innerHTML = `
+
+        <div class="profile-image">
+
+            <img
+                src="${profile.photo}"
+                alt="${profile.name}'s profile photo"
+            >
+
+        </div>
+
+        <div class="online-status">
+            ● Online
+        </div>
+
+        <h3>${profile.name}, ${profile.age}</h3>
+
+        <p class="location">
+            📍 ${profile.location}
+        </p>
+
+        <p class="bio">
+            ${profile.bio}
+        </p>
+
+        <div class="interests">
+
+            <span>🎯 ${profile.looking}</span>
+
+            ${profile.preferences
+                .split(",")
+                .map(function(preference) {
+                    return `<span>💡 ${preference.trim()}</span>`;
+                })
+                .join("")}
+
+        </div>
+
+        <div class="profile-actions">
+
+            <button
+                type="button"
+                class="like-btn"
+            >
+                ❤️ Like
+            </button>
+
+            <button
+                type="button"
+                class="connect-btn"
+                onclick="toggleConnect(this)"
+            >
+                🤝 Connect
+            </button>
+
+        </div>
+
+        <button
+            type="button"
+            class="edit-profile-btn"
+        >
+            ✏️ Edit Profile
+        </button>
+
+        <button
+            type="button"
+            class="delete-profile-btn"
+        >
+            🗑️ Delete Profile
+        </button>
+
+    `;
+
+
+const currentFirebaseUid =
+    window.connectHubUserId || "";
+
+const isOwner =
+    profile.ownerUid === currentFirebaseUid;
+
+    // DELETE PROFILE
+    const deleteButton =
+        profileCard.querySelector(".delete-profile-btn");
+   
+        if (!isOwner) {
+    deleteButton.style.display = "none";
+}
+    deleteButton.addEventListener("click", function() {
+
+        const confirmDelete =
+            confirm(
+                "Are you sure you want to delete this profile?"
+            );
+
+        if (!confirmDelete) {
+            return;
+        }
+
+        // Remove from savedProfiles
+        const profileIndex =
+            savedProfiles.findIndex(function(savedProfile) {
+
+                return savedProfile.createdAt === profile.createdAt;
+
+            });
+
+        if (profileIndex !== -1) {
+
+            savedProfiles.splice(profileIndex, 1);
+
+            localStorage.setItem(
+                "connectHubProfiles",
+                JSON.stringify(savedProfiles)
+            );
+
+        }
+
+        // Remove from the page
+        profileCard.remove();
+
+    });
+// EDIT PROFILE
+
+const editButton =
+    profileCard.querySelector(".edit-profile-btn");
+
+if (!isOwner) {
+    editButton.style.display = "none";
+}
+editButton.addEventListener("click", function() {
+   
+    editingProfile = profile;
+
+    profileSubmitButton.textContent = "Save Changes";
+   
+    nameInput.value = profile.name;
+    document.getElementById("age").value = profile.age;
+    document.getElementById("location").value = profile.location;
+    document.getElementById("looking").value = profile.looking;
+    document.getElementById("preferences").value = profile.preferences;
+    document.getElementById("bio").value = profile.bio;
+
+    photoPreview.src = profile.photo;
+    photoPreview.style.display = "block";
+
+    document.getElementById("profile-form").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+});
+    return profileCard;
+}
+
+
+// PROFILE FORM
+const profileForm = document.getElementById("profile-form");
+const profiles = document.getElementById("Profiles");
+const nameInput = document.getElementById("name");
+const profileSubmitButton =
+    document.getElementById("profile-submit-btn");
+let currentUserPreferences =
+    localStorage.getItem("currentUserPreferences") || "";
+
+let editingProfile = null;
+
+profileForm.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    // PHOTO REQUIRED ONLY FOR NEW PROFILES
+    if (!editingProfile && !photoInput.files[0]) {
+
+        alert("Please upload a profile photo first.");
+
+        return;
+    }
+
+
+    // =========================================
+    // WAIT FOR FIREBASE AUTHENTICATION
+    // =========================================
+
+    let firebaseUid = "";
+
+    try {
+
+        if (window.connectHubUserReady) {
+
+            const userCredential =
+                await window.connectHubUserReady;
+
+            if (userCredential && userCredential.user) {
+
+                firebaseUid =
+                    userCredential.user.uid;
+
+                window.connectHubUserId =
+                    firebaseUid;
+
+                console.log(
+                    "ConnectHub Firebase UID ready:",
+                    firebaseUid
+                );
+
+            }
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Firebase authentication could not be completed:",
+            error
+        );
+
+    }
+
+
+    // =========================================
+    // GET PROFILE INFORMATION
+    // =========================================
+
+    const updatedData = {
+
+        name: nameInput.value,
+
+        age: document.getElementById("age").value,
+
+        location: document.getElementById("location").value,
+
+        looking: document.getElementById("looking").value,
+
+        preferences:
+            document.getElementById("preferences").value,
+
+        bio:
+            document.getElementById("bio").value,
+
+        photo: photoPreview.dataset.compressedPhoto || photoPreview.src,
+
+        firebaseUid: firebaseUid,
+
+        createdAt: editingProfile
+            ? editingProfile.createdAt
+            : Date.now()
+
+    };
+
+
+    // =========================================
+    // SAVE CURRENT USER PREFERENCES
+    // =========================================
+
+    currentUserPreferences =
+        updatedData.preferences;
+
+    localStorage.setItem(
+        "currentUserPreferences",
+        currentUserPreferences
+    );
+
+
+    // =========================================
+    // EDIT EXISTING PROFILE
+    // =========================================
+
+    if (editingProfile) {
+
+        const profileIndex =
+            savedProfiles.findIndex(function(savedProfile) {
+
+                return (
+                    savedProfile.createdAt ===
+                    editingProfile.createdAt
+                );
+
+            });
+
+
+        if (profileIndex !== -1) {
+
+            savedProfiles[profileIndex] =
+                updatedData;
+
+            localStorage.setItem(
+                "connectHubProfiles",
+                JSON.stringify(savedProfiles)
+            );
+
+
+            // Find old card
+            const oldCard =
+                document.querySelector(
+                    `.profile-card[data-created-at="${editingProfile.createdAt}"]`
+                );
+
+
+            // Create updated card
+            const updatedCard =
+                createProfileCard(updatedData);
+
+
+            // Replace old card
+            if (oldCard) {
+
+                oldCard.replaceWith(updatedCard);
+
+            }
+
+
+            // Exit edit mode
+            editingProfile = null;
+
+        }
+
+    }
+
+
+ // =========================================
+// CREATE NEW PROFILE
+// =========================================
+
+else {
+
+    // Firebase is now the main profile storage.
+    // Do not save the profile to localStorage.
+
+    const newProfile =
+        createProfileCard(updatedData);
+
+    profiles.appendChild(newProfile);
+
+}
+
+
+    // =========================================
+    // SAVE PROFILE TO FIREBASE
+    // =========================================
+
+    if (
+        typeof window.saveProfileToFirebase ===
+        "function"
+    ) {
+
+        try {
+
+            await window.saveProfileToFirebase(
+                updatedData
+            );
+
+            console.log(
+                "✅ Profile saved to Firebase"
+            );
+
+        } catch (error) {
+
+            console.error(
+                "❌ Could not save profile to Firebase:",
+                error
+            );
+
+        }
+
+    }
+
+
+    // =========================================
+    // UPDATE CURRENT PREFERENCES
+    // =========================================
+
+    currentUserPreferences =
+        updatedData.preferences.toLowerCase();
+
+
+    // =========================================
+    // CLEAR FORM
+    // =========================================
+
+    profileForm.reset();
+
+    photoPreview.src = "";
+
+    photoPreview.style.display = "none";
+
+    profileSubmitButton.textContent =
+        "Create Profile";
+
+});
+
+// LIKE BUTTONS
+document.addEventListener("click", function(event) {
+
+    const likeButton = event.target.closest(".like-btn");
+
+    if (!likeButton) return;
+
+
+    if (likeButton.classList.contains("liked")) {
+
+        likeButton.textContent = "❤️ Like";
+        likeButton.classList.remove("liked");
+
+        return;
+    }
+
+
+    likeButton.textContent = "❤️ Liked";
+    likeButton.classList.add("liked");
+
+
+    // CREATE FLYING HEARTS
+
+    const hearts = ["❤️", "💕", "💗", "💖", "💓"];
+
+    for (let i = 0; i < 5; i++) {
+
+        const heart = document.createElement("span");
+
+        heart.className = "flying-heart";
+
+        heart.textContent =
+            hearts[Math.floor(Math.random() * hearts.length)];
+
+
+        const x =
+            (Math.random() * 100 - 50) + "px";
+
+        const y =
+            (-50 - Math.random() * 50) + "px";
+
+
+        heart.style.setProperty("--x", x);
+        heart.style.setProperty("--y", y);
+
+
+        likeButton.appendChild(heart);
+
+
+        setTimeout(function() {
+            heart.remove();
+        }, 800);
+
+    }
+
+
+    // SHORT LIKE SOUND
+
+    try {
+
+        const audioContext =
+            new (window.AudioContext ||
+                window.webkitAudioContext)();
+
+        const oscillator =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+
+        oscillator.type = "sine";
+
+        oscillator.frequency.setValueAtTime(
+            520,
+            audioContext.currentTime
+        );
+
+        oscillator.frequency.exponentialRampToValueAtTime(
+            760,
+            audioContext.currentTime + 0.12
+        );
+
+
+        gain.gain.setValueAtTime(
+            0.001,
+            audioContext.currentTime
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.18,
+            audioContext.currentTime + 0.02
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.001,
+            audioContext.currentTime + 0.18
+        );
+
+
+        oscillator.connect(gain);
+        gain.connect(audioContext.destination);
+
+        oscillator.start();
+
+        oscillator.stop(
+            audioContext.currentTime + 0.18
+        );
+
+    } catch (error) {
+
+        console.log("Like sound unavailable.");
+
+    }
+
+});
+
+
+function openChat(personName) {
+const connectButtons = document.querySelectorAll(".connect-btn");
+
+connectButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        const personName = this.dataset.name;
+
+        openChat(personName);
+
+    });
+
+});
+    const existingChat = document.getElementById("chat-box");
+
+    if (existingChat) {
+        existingChat.remove();
+    }
+
+    const chatBox = document.createElement("div");
+
+    chatBox.id = "chat-box";
+
+    chatBox.innerHTML = `
+        <div class="chat-header">
+            <span>💬 Chat with ${personName}</span>
+
+            <button type="button" id="close-chat">✕</button>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+            <div class="chat-message received">
+                Hi! 👋
+            </div>
+        </div>
+
+        <form class="chat-input-area" id="chat-form">
+
+            <input
+                type="text"
+                id="chat-input"
+                placeholder="Type a message..."
+                autocomplete="off"
+                required
+            >
+
+            <button type="submit">➤</button>
+
+        </form>
+    `;
+
+    document.body.appendChild(chatBox);
+
+    document.getElementById("close-chat").addEventListener("click", function() {
+        chatBox.remove();
+    });
+
+    document.getElementById("chat-form").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const input = document.getElementById("chat-input");
+        const message = input.value.trim();
+
+        if (message === "") {
+            return;
+        }
+
+        const messageElement = document.createElement("div");
+
+        messageElement.classList.add("chat-message", "sent");
+
+        messageElement.textContent = message;
+
+        document
+            .getElementById("chat-messages")
+            .appendChild(messageElement);
+
+        input.value = "";
+
+        document.getElementById("chat-messages").scrollTop =
+            document.getElementById("chat-messages").scrollHeight;
+    });
+
+    document.getElementById("chat-input").focus();
+}
+console.log("Current user preferences:", currentUserPreferences);
+function toggleConnect(button) {
+
+    const profileCard = button.closest(".profile-card");
+
+    // =========================
+    // DISCONNECT
+    // =========================
+    if (button.classList.contains("connected")) {
+
+        button.innerHTML = "🤝 Connect";
+        button.classList.remove("connected");
+
+        const oldMessage =
+            profileCard.querySelector(".connection-message");
+
+        if (oldMessage) {
+            oldMessage.remove();
+        }
+
+        return;
+    }
+
+
+    // =========================
+    // CONNECT
+    // =========================
+    button.innerHTML = "✓ Connected";
+    button.classList.add("connected");
+    button.classList.add("connecting");
+
+
+    setTimeout(function () {
+        button.classList.remove("connecting");
+    }, 500);
+
+
+    // =========================
+    // SPARKLES
+    // =========================
+    const sparkles = ["✨", "⭐", "💫", "✦"];
+
+    for (let i = 0; i < 4; i++) {
+
+        const sparkle = document.createElement("span");
+
+        sparkle.className = "connection-sparkle";
+
+        sparkle.textContent =
+            sparkles[Math.floor(Math.random() * sparkles.length)];
+
+        sparkle.style.setProperty(
+            "--x",
+            (Math.random() * 100 - 50) + "px"
+        );
+
+        sparkle.style.setProperty(
+            "--y",
+            (-40 - Math.random() * 40) + "px"
+        );
+
+        button.appendChild(sparkle);
+
+        setTimeout(function () {
+            sparkle.remove();
+        }, 800);
+    }
+
+
+    // =========================
+    // CURRENT USER PREFERENCES
+    // =========================
+    const userPreferences =
+        (currentUserPreferences || "")
+            .toLowerCase()
+            .split(",")
+            .map(function (item) {
+                return item.trim();
+            })
+            .filter(Boolean);
+
+
+    // =========================
+    // PROFILE PREFERENCES
+    // =========================
+    const profileInterestElements =
+        profileCard.querySelectorAll(".interests span");
+
+
+    const profilePreferences = [];
+
+
+    profileInterestElements.forEach(function (element) {
+
+        const text =
+            element.textContent
+                .toLowerCase()
+                .replace("💡", "")
+                .replace("🎯", "")
+                .trim();
+
+        // Ignore the "looking for" tag
+        if (!element.textContent.includes("🎯")) {
+
+            profilePreferences.push(text);
+
+        }
+
+    });
+
+
+    // =========================
+    // FIND COMMON INTERESTS
+    // =========================
+    const commonInterests = [];
+
+
+    userPreferences.forEach(function (userInterest) {
+
+        profilePreferences.forEach(function (profileInterest) {
+
+            if (
+                userInterest === profileInterest &&
+                !commonInterests.includes(userInterest)
+            ) {
+
+                commonInterests.push(userInterest);
+
+            }
+
+        });
+
+    });
+
+
+    // =========================
+    // REMOVE OLD MESSAGE
+    // =========================
+    const oldMessage =
+        profileCard.querySelector(".connection-message");
+
+    if (oldMessage) {
+        oldMessage.remove();
+    }
+
+
+    // =========================
+    // CREATE MESSAGE
+    // =========================
+    const message =
+        document.createElement("p");
+
+    message.className =
+        "connection-message";
+
+
+    if (commonInterests.length > 0) {
+
+        message.textContent =
+            "✨ " +
+            commonInterests.length +
+            " interest" +
+            (commonInterests.length > 1 ? "s" : "") +
+            " in common: " +
+            commonInterests.join(", ");
+
+    } else {
+
+        message.textContent =
+            "✨ You're connected! Explore each other's interests.";
+
+    }
+
+
+    profileCard.appendChild(message);
+
+
+    // =========================
+    // VIEW PROFILE BUTTON
+    // =========================
+    let viewButton =
+        profileCard.querySelector(".view-profile-btn");
+
+
+    if (!viewButton) {
+
+        viewButton =
+            document.createElement("button");
+
+        viewButton.type = "button";
+        viewButton.className =
+            "view-profile-btn";
+
+        viewButton.textContent =
+            "👤 View Profile";
+
+
+        viewButton.addEventListener(
+            "click",
+            function () {
+
+                openProfileModal(profileCard);
+
+            }
+        );
+
+
+        profileCard.appendChild(viewButton);
+    }
+}
+
+// OPEN PROFILE DETAILS
+
+function openProfileModal(profileCard) {
+
+    const modal = document.getElementById("profile-modal");
+
+    const photo =
+        profileCard.querySelector(".profile-image img");
+
+    const name =
+        profileCard.querySelector("h3");
+
+    const location =
+        profileCard.querySelector(".location");
+
+    const bio =
+        profileCard.querySelector(".bio");
+
+    const interests =
+        profileCard.querySelectorAll(".interests span");
+
+    document.getElementById("modal-profile-photo").src =
+        photo.src;
+
+    document.getElementById("modal-profile-name").textContent =
+        name.textContent;
+
+    document.getElementById("modal-profile-location").textContent =
+        location.textContent;
+
+    document.getElementById("modal-profile-bio").textContent =
+        bio.textContent;
+
+    const interestsContainer =
+        document.getElementById("modal-profile-interests");
+
+    interestsContainer.innerHTML = "";
+
+    interests.forEach(function(interest) {
+
+        const tag = document.createElement("span");
+
+        tag.textContent = interest.textContent;
+
+        interestsContainer.appendChild(tag);
+
+    });
+
+    modal.style.display = "flex";
+}
+
+
+// CLOSE PROFILE DETAILS
+
+function closeProfileModal() {
+
+    document.getElementById("profile-modal").style.display = "none";
+
+}
+
+
+// =========================================
+// LOAD PROFILES FROM FIREBASE
+// =========================================
+
+window.loadProfilesFromFirebase = function() {
+
+    window.connectHubUserReady.then(function() {
+
+        const profilesRef =
+            window.connectHubRef(
+                window.connectHubDB,
+                "profiles"
+            );
+
+        window.connectHubOnValue(
+            profilesRef,
+            function(snapshot) {
+
+                const firebaseProfiles =
+                    snapshot.val() || {};
+
+                Object.keys(firebaseProfiles).forEach(
+                    function(uid) {
+
+                        const profile =
+                            firebaseProfiles[uid];
+
+                        // Make sure Firebase UID is attached
+                        profile.firebaseUid = uid;
+
+                        // Check whether this profile
+                        // is already displayed
+                        const existingCard =
+                            document.querySelector(
+                                `.profile-card[data-created-at="${profile.createdAt}"]`
+                            );
+
+                        // If it already exists,
+                        // do not create another copy
+                        if (existingCard) {
+                            return;
+                        }
+
+                        const profileCard =
+                            createProfileCard(profile);
+
+                        profiles.appendChild(
+                            profileCard
+                        );
+
+                    }
+                );
+
+                console.log(
+                    "🌎 Profiles loaded from Firebase:",
+                    Object.keys(firebaseProfiles).length
+                );
+
+                // Start watching online/offline status
+                watchProfilePresence();
+
+            }
+        );
+
+    }).catch(function(error) {
+
+        console.error(
+            "❌ Could not load profiles from Firebase:",
+            error
+        );
+
+    });
+
+};
+// PROFILE SEARCH + FILTERS + SORTING
+
+const profileSearch =
+    document.getElementById("profile-search");
+
+const lookingFilter =
+    document.getElementById("looking-filter");
+
+const locationFilter =
+    document.getElementById("location-filter");
+
+const profileSort =
+    document.getElementById("profile-sort");
+
+
+function filterProfiles() {
+
+    const searchText =
+        profileSearch.value.toLowerCase().trim();
+
+    const selectedLookingFor =
+        lookingFilter.value.toLowerCase();
+
+    const selectedLocation =
+        locationFilter.value.toLowerCase();
+
+    const profileCards =
+        document.querySelectorAll(".profile-card");
+
+
+    profileCards.forEach(function(card) {
+
+        const profileText =
+            card.textContent.toLowerCase();
+
+        const searchMatches =
+            profileText.includes(searchText);
+
+        let lookingMatches = true;
+
+        if (selectedLookingFor !== "") {
+
+            lookingMatches =
+                profileText.includes(selectedLookingFor);
+
+        }
+
+        let locationMatches = true;
+
+        if (selectedLocation !== "") {
+
+            locationMatches =
+                profileText.includes(selectedLocation);
+
+        }
+
+        if (
+            searchMatches &&
+            lookingMatches &&
+            locationMatches
+        ) {
+
+            card.style.display = "";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    sortProfiles();
+}
+
+
+function sortProfiles() {
+
+    const sortValue =
+        profileSort.value;
+
+    const profileContainer =
+        document.getElementById("Profiles");
+
+    const profileCards =
+        Array.from(
+            profileContainer.querySelectorAll(".profile-card")
+        );
+
+
+    if (sortValue === "name") {
+
+        profileCards.sort(function(a, b) {
+
+            const nameA =
+                a.querySelector("h3").textContent
+                    .toLowerCase();
+
+            const nameB =
+                b.querySelector("h3").textContent
+                    .toLowerCase();
+
+            return nameA.localeCompare(nameB);
+
+        });
+
+    }
+
+
+   if (sortValue === "age") {
+
+    profileCards.sort(function(a, b) {
+
+        const ageTextA =
+            a.querySelector("h3").textContent;
+
+        const ageTextB =
+            b.querySelector("h3").textContent;
+
+        const ageA =
+            parseInt(ageTextA.match(/\d+/)?.[0] || "999");
+
+        const ageB =
+            parseInt(ageTextB.match(/\d+/)?.[0] || "999");
+
+        return ageA - ageB;
+
+    });
+
+}
+
+
+if (sortValue === "newest") {
+
+    profileCards.sort(function(a, b) {
+
+        const timeA =
+            parseInt(a.dataset.createdAt || "0");
+
+        const timeB =
+            parseInt(b.dataset.createdAt || "0");
+
+        return timeB - timeA;
+
+    });
+
+}   
+
+
+    profileCards.forEach(function(card) {
+
+        profileContainer.appendChild(card);
+
+    });
+
+}
+
+
+// Search
+profileSearch.addEventListener(
+    "input",
+    filterProfiles
+);
+
+
+// Looking-for filter
+lookingFilter.addEventListener(
+    "change",
+    filterProfiles
+);
+
+
+// Location filter
+locationFilter.addEventListener(
+    "change",
+    filterProfiles
+);
+
+
+// Sorting
+profileSort.addEventListener(
+    "change",
+    sortProfiles
+);
+</script>
+<!-- FIREBASE -->
+
+<script type="module">
+
+    import { initializeApp }
+        from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+    import { getAuth, signInAnonymously }
+        from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+    import {
+    getDatabase,
+    ref,
+    onValue,
+    onDisconnect,
+    set,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-database.js";
+
+
+    const firebaseConfig = {
+
+        apiKey: "AIzaSyDOjY7uJZzZlCHmf-x07NcRZLNTZKNGUzw",
+
+        authDomain: "connecthub-2bb8a.firebaseapp.com",
+
+        databaseURL: "https://connecthub-2bb8a-default-rtdb.firebaseio.com",
+
+        projectId: "connecthub-2bb8a",
+
+        storageBucket: "connecthub-2bb8a.firebasestorage.app",
+
+        messagingSenderId: "56208062146",
+
+        appId: "1:56208062146:web:939139fc1b6cff0663ed5b",
+
+        measurementId: "G-59R65MJM5Q"
+
+    };
+
+
+   const app = initializeApp(firebaseConfig);
+
+   const auth = getAuth(app);
+
+   const db = getDatabase(app);
+
+window.connectHubDB = db;
+window.connectHubRef = ref;
+window.connectHubOnValue = onValue;
+
+window.connectHubUserReady =
+    signInAnonymously(auth)
+
+    .then(function(userCredential) {
+
+        const uid = userCredential.user.uid;
+
+        window.connectHubUserId = uid;
+
+        console.log(
+            "ConnectHub Firebase user:",
+            uid
+        );
+
+        // Firebase connection status
+
+        const connectedRef =
+            ref(db, ".info/connected");
+
+
+        onValue(
+            connectedRef,
+            function(snapshot) {
+
+                if (snapshot.val() !== true) {
+
+                    console.log(
+                        "Firebase: not connected"
+                    );
+
+                    return;
+                }
+
+
+                // This user's presence location
+
+                const userStatusRef =
+                    ref(db, "status/" + uid);
+
+
+                // Tell Firebase to mark user offline
+                // when the connection disappears
+
+                onDisconnect(userStatusRef)
+
+                    .set({
+                        state: "offline",
+                        lastChanged: serverTimestamp()
+                    })
+
+                    .then(function() {
+
+                        // Mark user online now
+
+                        return set(
+                            userStatusRef,
+                            {
+                                state: "online",
+                                lastChanged: serverTimestamp()
+                            }
+                        );
+
+                    })
+
+                    .then(function() {
+
+                        console.log(
+                            "🟢 ConnectHub: User is ONLINE"
+                        );
+
+                    })
+
+                    .catch(function(error) {
+
+                        console.error(
+                            "Presence error:",
+                            error
+                        );
+
+                    });
+
+            }
+        );
+
+
+        // IMPORTANT:
+        // Pass the Firebase user to the next .then()
+
+        return userCredential;
+
+    })
+
+    .catch(function(error) {
+
+        console.error(
+            "Firebase authentication error:",
+            error
+        );
+
+    });
+    
+    // WATCH PROFILE ONLINE / OFFLINE STATUS
+
+window.watchProfilePresence = function() {
+
+    const savedProfiles =
+        JSON.parse(
+            localStorage.getItem("connectHubProfiles")
+        ) || [];
+
+    const profileCards =
+        document.querySelectorAll(".profile-card");
+
+
+    savedProfiles.forEach(function(profile) {
+
+        if (!profile.firebaseUid) {
+            return;
+        }
+
+
+        const profileCard =
+            Array.from(profileCards).find(function(card) {
+
+                return (
+                    card.dataset.createdAt ==
+                    profile.createdAt
+                );
+
+            });
+
+
+        if (!profileCard) {
+            return;
+        }
+
+
+        const onlineStatus =
+            profileCard.querySelector(".online-status");
+
+
+        if (!onlineStatus) {
+            return;
+        }
+
+
+        const userStatusRef =
+            ref(
+                db,
+                "status/" + profile.firebaseUid
+            );
+
+
+        onValue(
+            userStatusRef,
+            function(snapshot) {
+
+                const status =
+                    snapshot.val();
+
+
+                if (
+                    status &&
+                    status.state === "online"
+                ) {
+
+                    onlineStatus.textContent =
+                        "● Online";
+
+                } else {
+
+                    onlineStatus.textContent =
+                        "● Offline";
+
+                }
+
+            }
+        );
+
+    });
+
+}
+
+
+// Start watching profile statuses
+
+setTimeout(
+    watchProfilePresence,
+    1000
+);
+
+// Load all profiles from Firebase
+
+setTimeout(function() {
+
+    if (
+        typeof window.loadProfilesFromFirebase ===
+        "function"
+    ) {
+
+        window.loadProfilesFromFirebase();
+
+    }
+
+}, 1500);
+
+// SAVE CONNECTHUB PROFILE TO FIREBASE
+window.saveProfileToFirebase = function(profile) {
+
+    return window.connectHubUserReady
+        .then(function(userCredential) {
+
+            const uid =
+                userCredential.user.uid;
+
+            window.connectHubUserId = uid;
+
+            console.log(
+                "ConnectHub Firebase user:",
+                uid
+            );
+
+            // Each profile gets its own Firebase record
+            // using its existing createdAt value.
+            const profileId =
+                String(profile.createdAt);
+
+            const profileRef =
+                ref(
+                    db,
+                    "profiles/" + profileId
+                );
+
+            return set(
+                profileRef,
+                {
+                    name: profile.name,
+                    age: profile.age,
+                    location: profile.location,
+                    looking: profile.looking,
+                    preferences: profile.preferences,
+                    bio: profile.bio,
+                    photo: profile.photo,
+                    createdAt: profile.createdAt,
+
+                    // Firebase account that owns this profile
+                    firebaseUid: uid,
+                    ownerUid: uid
+                }
+            );
+        });
+};
+</script>
+
+<!-- PROFILE DETAILS MODAL -->
+
+<div id="profile-modal" class="profile-modal">
+
+    <div class="profile-modal-content">
+
+        <button
+            type="button"
+            class="close-profile-modal"
+            onclick="closeProfileModal()"
+        >
+            ✕
+        </button>
+
+        <img
+            id="modal-profile-photo"
+            src=""
+            alt="Profile photo"
+        >
+
+        <h2 id="modal-profile-name"></h2>
+
+        <p id="modal-profile-location"></p>
+
+        <p id="modal-profile-looking"></p>
+
+        <div id="modal-profile-interests"></div>
+
+        <p id="modal-profile-bio"></p>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
