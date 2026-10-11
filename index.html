@@ -1679,8 +1679,11 @@ profileSort.addEventListener(
     import { initializeApp }
         from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
-    import { getAuth, signInAnonymously }
-        from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+ import {
+    getAuth,
+    signInAnonymously,
+    signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
     import {
     getDatabase,
@@ -1716,6 +1719,22 @@ profileSort.addEventListener(
    const app = initializeApp(firebaseConfig);
 
    const auth = getAuth(app);
+
+    // ConnectHub email and password login
+window.connectHubLogin = function(email, password) {
+    return signInWithEmailAndPassword(auth, email, password)
+        .then(function(userCredential) {
+            // Use the signed-in user's Firebase ID
+            window.connectHubUserId = userCredential.user.uid;
+
+            console.log(
+                "ConnectHub email user:",
+                userCredential.user.uid
+            );
+
+            return userCredential;
+        });
+};
 
    const db = getDatabase(app);
 
