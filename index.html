@@ -1679,10 +1679,14 @@ profileSort.addEventListener(
     import { initializeApp }
         from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
- import {
+import {
     getAuth,
     signInAnonymously,
-    signInWithEmailAndPassword
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    onAuthStateChanged,
+    setPersistence,
+    browserLocalPersistence
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
     import {
@@ -1742,10 +1746,40 @@ window.connectHubDB = db;
 window.connectHubRef = ref;
 window.connectHubOnValue = onValue;
 
+
 window.connectHubUserReady =
-    signInAnonymously(auth)
+    setPersistence(auth, browserLocalPersistence)
+
+    .then(function() {
+        return new Promise(function(resolve, reject) {
+
+            let unsubscribe = function() {};
+
+            unsubscribe = onAuthStateChanged(
+                auth,
+                function(user) {
+
+                    unsubscribe();
+
+                    if (user) {
+                        // Keep the existing signed-in account
+                        resolve({ user: user });
+                        return;
+                    }
+
+                    // Only use anonymous sign-in if no user exists
+                    signInAnonymously(auth)
+                        .then(resolve)
+                        .catch(reject);
+                },
+                reject
+            );
+
+        });
+    })
 
     .then(function(userCredential) {
+
 
         const uid = userCredential.user.uid;
 
