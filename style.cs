@@ -1082,5 +1082,19 @@ footer {
     }
 }
 
+/* SMOOTH CONNECTHUB NAVIGATION */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+.nav-links .nav-link:active {
+    transform: scale(0.94);
+}
+
+.nav-links .nav-link {
+    -webkit-tap-highlight-color: transparent;
+}
+
 
 }
