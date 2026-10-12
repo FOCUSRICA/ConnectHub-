@@ -937,6 +937,8 @@ footer {
 
 @keyframes sparkleFly {
 
+
+   
     0% {
         opacity: 1;
         transform: translate(0, 0) scale(1);
@@ -1256,6 +1258,132 @@ html {
 
     .hero-button {
         transition: none;
+    }
+}
+
+/* =========================
+   CONNECTHUB PREMIUM PROFILE CARDS
+========================= */
+
+.profile-card {
+    background: #ffffff;
+    border: 1px solid #f5e5ec;
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(50, 20, 35, 0.07);
+    padding-bottom: 15px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(50, 20, 35, 0.12);
+}
+
+.profile-card .profile-image {
+    height: 190px;
+    background: #fff0f5;
+}
+
+.profile-card .profile-image img {
+    transition: transform 0.4s ease;
+}
+
+.profile-card .online-status {
+    display: inline-block;
+    margin: 12px 12px 4px;
+    padding: 5px 9px;
+    border-radius: 20px;
+    background: #eaf8ef;
+    color: #25834a;
+    font-size: 12px;
+}
+
+.profile-card h3 {
+    margin: 7px 12px;
+    color: #29212a;
+    font-size: 18px;
+    font-weight: 750;
+}
+
+.profile-card p {
+    color: #655b63;
+}
+
+.profile-card .location {
+    font-size: 13px;
+}
+
+.profile-card .bio {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.profile-card .interests {
+    gap: 7px;
+    margin-top: 12px;
+    margin-bottom: 14px;
+}
+
+.profile-card .interests span {
+    background: #fff0f5;
+    border: 1px solid #f9d7e4;
+    padding: 6px 10px;
+    border-radius: 20px;
+    color: #a51c50;
+    font-size: 12px;
+}
+
+.profile-card .profile-actions {
+    gap: 9px;
+    margin: 12px;
+}
+
+.profile-card .profile-actions button {
+    min-height: 38px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 650;
+    transition: background 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.profile-card .like-btn {
+    background: #fff0f4;
+    color: #c2185b;
+    border: 1px solid #f7d2df;
+}
+
+.profile-card .like-btn:hover {
+    background: #ffe0ea;
+}
+
+.profile-card .connect-btn {
+    background: linear-gradient(135deg, #ec407a, #d81b60);
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(216, 27, 96, 0.18);
+}
+
+.profile-card .connect-btn:hover {
+    background: #c2185b;
+    box-shadow: 0 6px 14px rgba(216, 27, 96, 0.25);
+}
+
+.profile-card .connect-btn.connected {
+    background: #25834a;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .profile-card,
+    .profile-card .profile-image img,
+    .profile-card .profile-actions button {
+        transition: none;
+    }
+
+    .profile-card:hover {
+        transform: none;
     }
 }
 
