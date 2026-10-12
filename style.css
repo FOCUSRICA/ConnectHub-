@@ -1629,4 +1629,160 @@ nav a[href*="#profiles"]:hover {
         font-size: 9px;
     }
 }
+/* ===== CONNECTHUB PROFILE CARD IMPROVEMENTS ===== */
+
+#Profiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 25px auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+.profile-card {
+    min-width: 0;
+    background: #ffffff;
+    border: 1px solid #f0e4e9;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(40, 20, 30, 0.07);
+    padding-bottom: 14px;
+    position: relative;
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(40, 20, 30, 0.12);
+}
+
+/* Profile photo */
+.profile-card .profile-image {
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+    background: #fce4ec;
+}
+
+.profile-card .profile-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.35s ease;
+}
+
+.profile-card:hover .profile-image img {
+    transform: scale(1.04);
+}
+
+/* Profile name */
+.profile-card h3 {
+    margin: 14px 15px 6px;
+    color: #29212a;
+    font-size: 18px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+/* Location and profile text */
+.profile-card p {
+    margin: 7px 15px;
+    color: #66606a;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+/* Interests */
+.profile-card .interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 12px 15px;
+    color: #7b3150;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Profile action buttons */
+.profile-card button {
+    max-width: calc(100% - 24px);
+    padding: 9px 12px;
+    margin: 5px 6px 0;
+    border: none;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease,
+                filter 0.2s ease;
+}
+
+.profile-card button:hover {
+    filter: brightness(0.96);
+    transform: translateY(-1px);
+}
+
+.profile-card button:active {
+    transform: scale(0.97);
+}
+
+/* Connect button */
+.profile-card button[onclick*="toggleConnect"] {
+    background: #e91e63;
+    color: #ffffff;
+}
+
+/* Online status */
+.profile-card .online-status {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    padding: 5px 9px;
+    border-radius: 20px;
+    background: #ffffff;
+    color: #21864b;
+    font-size: 11px;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    #Profiles {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        padding: 0 10px;
+    }
+
+    .profile-card .profile-image {
+        height: 185px;
+    }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+    #Profiles {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 360px;
+        gap: 18px;
+        padding: 0 12px;
+    }
+
+    .profile-card .profile-image {
+        height: 230px;
+    }
+
+    .profile-card h3 {
+        font-size: 18px;
+    }
+}
 
