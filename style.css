@@ -1135,3 +1135,20 @@ html {
     transform: scale(1.03);
 }
 
+/* FINAL CONNECTHUB LOGO FIX */
+.navbar a.logo,
+.navbar a.logo:link,
+.navbar a.logo:visited,
+.navbar a.logo:hover,
+.navbar a.logo:active {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow: none;
+}
+
+.navbar a.logo span {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+
