@@ -158,6 +158,37 @@
     <option value="age">Age: Youngest</option>
 </select>
 </div>
+// PROFILE SEARCH + FILTERS + SORTING
+<div class="profile-discovery-tools">
+
+    <h2>People You May Like 💗</h2>
+
+    <p>Find people who share your interests.</p>
+
+    <div class="profile-search-bar">
+
+        <input
+            type="search"
+            id="profile-search"
+            placeholder="🔍 Search by name, location or interests..."
+            aria-label="Search profiles"
+        >
+
+        <select id="profile-filter" aria-label="Filter profiles">
+            <option value="all">All profiles</option>
+            <option value="friendship">Friendship</option>
+            <option value="relationship">Relationship</option>
+            <option value="casual dating">Casual dating</option>
+            <option value="something serious">Something serious</option>
+            <option value="networking">Networking</option>
+        </select>
+
+    </div>
+
+    <p id="profile-results-count" aria-live="polite"></p>
+
+</div>
+
 <!-- Profile Discovery Tools -->
 <div class="profile-discovery-tools">
 
@@ -188,6 +219,7 @@
     <p id="profile-results-count" aria-live="polite"></p>
 
 </div>
+
 <div class="profile-container" id="Profiles">
 
 
@@ -1599,45 +1631,29 @@ window.loadProfilesFromFirebase = function() {
     });
 
 };
-// ===== CONNECTHUB PROFILE SEARCH, FILTER & SORT =====
 
-const profileSearch =
-    document.getElementById("profile-search");
+/* CONNECTHUB PROFESSIONAL PROFILE SEARCH */
 
-const lookingFilter =
-    document.getElementById("profile-filter");
-
-const locationFilter =
-    document.getElementById("location-filter");
-
-const profileSort =
-    document.getElementById("profile-sort");
+const profileSearch = document.getElementById("profile-search");
+const profileFilter = document.getElementById("profile-filter");
+const profilesContainer = document.getElementById("Profiles");
 
 function filterProfiles() {
-    const searchText =
-        profileSearch ? profileSearch.value.toLowerCase().trim() : "";
+    if (!profilesContainer) return;
 
-    const selectedLookingFor =
-        lookingFilter ? lookingFilter.value.toLowerCase() : "all";
+    const searchText = profileSearch
+        ? profileSearch.value.toLowerCase().trim()
+        : "";
 
-    const selectedLocation =
-        locationFilter ? locationFilter.value.toLowerCase() : "";
+    const selectedLookingFor = profileFilter
+        ? profileFilter.value.toLowerCase()
+        : "all";
 
-    const profileCards =
-        document.querySelectorAll("#Profiles .profile-card");
-
+    const cards = profilesContainer.querySelectorAll(".profile-card");
     let visibleCount = 0;
 
-    profileCards.forEach(function(card) {
+    cards.forEach(function(card) {
         const profileText = card.textContent.toLowerCase();
-
-        // Search names, locations, bios and interests
-        const searchMatches =
-            profileText.includes(searchText);
-
-        // Read the profile's looking-for preference
-        const lookingElement =
-            card.querySelector(".looking-for");
 
         const lookingTag = Array.from(
             card.querySelectorAll(".interests span")
@@ -1646,27 +1662,20 @@ function filterProfiles() {
         });
 
         const lookingText = (
-            card.dataset.looking ||
-            (lookingElement ? lookingElement.textContent : "") ||
-            (lookingTag ? lookingTag.textContent.replace("🎯", "") : "")
-        ).toLowerCase().trim();
+            lookingTag
+                ? lookingTag.textContent.replace("🎯", "").trim()
+                : ""
+        ).toLowerCase();
 
-        const lookingMatches =
+        const matchesSearch =
+            profileText.includes(searchText);
+
+        const matchesFilter =
             selectedLookingFor === "all" ||
-            (
-                lookingText !== "" &&
-                lookingText.includes(selectedLookingFor)
-            );
-
-        // Location filter is optional
-        const locationMatches =
-            !selectedLocation ||
-            profileText.includes(selectedLocation);
+            lookingText.includes(selectedLookingFor);
 
         const shouldShow =
-            searchMatches &&
-            lookingMatches &&
-            locationMatches;
+            matchesSearch && matchesFilter;
 
         card.style.display = shouldShow ? "" : "none";
 
@@ -1675,7 +1684,6 @@ function filterProfiles() {
         }
     });
 
-    // Update the result count when that element exists
     const resultsCount =
         document.getElementById("profile-results-count");
 
@@ -1684,77 +1692,29 @@ function filterProfiles() {
             "Showing " + visibleCount +
             (visibleCount === 1 ? " profile" : " profiles");
     }
-
-    // Sorting must preserve the filtered visibility
-    sortProfiles();
 }
 
-function sortProfiles() {
-    const profileContainer =
-        document.getElementById("Profiles");
-
-    if (!profileContainer) return;
-
-    const sortValue =
-        profileSort ? profileSort.value : "default";
-
-    const profileCards = Array.from(
-        profileContainer.querySelectorAll(".profile-card")
-    );
-
-    if (sortValue === "name") {
-        profileCards.sort(function(a, b) {
-            const nameA =
-                (a.querySelector("h3")?.textContent || "").toLowerCase();
-
-            const nameB =
-                (b.querySelector("h3")?.textContent || "").toLowerCase();
-
-            return nameA.localeCompare(nameB);
-        });
-    } else if (sortValue === "age") {
-        profileCards.sort(function(a, b) {
-            const ageA = parseInt(
-                a.querySelector("h3")?.textContent.match(/\d+/)?.[0] || "999"
-            );
-
-            const ageB = parseInt(
-                b.querySelector("h3")?.textContent.match(/\d+/)?.[0] || "999"
-            );
-
-            return ageA - ageB;
-        });
-    } else if (sortValue === "newest") {
-        profileCards.sort(function(a, b) {
-            return Number(b.dataset.createdAt || 0) -
-                   Number(a.dataset.createdAt || 0);
-        });
-    }
-
-    profileCards.forEach(function(card) {
-        profileContainer.appendChild(card);
-    });
-}
-
-// Attach listeners safely
 if (profileSearch) {
     profileSearch.addEventListener("input", filterProfiles);
 }
 
-if (lookingFilter) {
-    lookingFilter.addEventListener("change", filterProfiles);
+if (profileFilter) {
+    profileFilter.addEventListener("change", filterProfiles);
 }
 
-if (locationFilter) {
-    locationFilter.addEventListener("change", filterProfiles);
+// Update filtering when Firebase or profile creation adds cards.
+if (profilesContainer) {
+    const profileObserver = new MutationObserver(function() {
+        filterProfiles();
+    });
+
+    profileObserver.observe(profilesContainer, {
+        childList: true
+    });
 }
 
-if (profileSort) {
-    profileSort.addEventListener("change", filterProfiles);
-}
-
-// Run the initial search
 filterProfiles();
+
 </script>
 <!-- FIREBASE -->
 
