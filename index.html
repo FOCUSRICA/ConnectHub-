@@ -1757,6 +1757,7 @@ window.connectHubLogin = function(email, password) {
         .then(function(userCredential) {
             // Use the signed-in user's Firebase ID
             window.connectHubUserId = userCredential.user.uid;
+            window.connectHubUserReady = Promise.resolve(userCredential);
 
             console.log(
                 "ConnectHub email user:",
