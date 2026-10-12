@@ -1565,6 +1565,61 @@ window.loadProfilesFromFirebase = function() {
     });
 
 };
+    
+/* CONNECTHUB PROFILE SEARCH */
+
+const profileSearchBox = document.getElementById("profile-search");
+
+function searchConnectHubProfiles() {
+    const container = document.getElementById("Profiles");
+    if (!container || !profileSearchBox) return;
+
+    const searchText = profileSearchBox.value
+        .toLowerCase()
+        .trim();
+
+    const cards = container.querySelectorAll(".profile-card");
+    let visibleCount = 0;
+
+    cards.forEach(function(card) {
+        const profileText = card.textContent.toLowerCase();
+        const matches = profileText.includes(searchText);
+
+        card.style.display = matches ? "" : "none";
+
+        if (matches) visibleCount++;
+    });
+
+    const counter = document.getElementById("profile-results-count");
+
+    if (counter) {
+        counter.textContent =
+            "Showing " + visibleCount +
+            (visibleCount === 1 ? " profile" : " profiles");
+    }
+}
+
+if (profileSearchBox) {
+    profileSearchBox.addEventListener(
+        "input",
+        searchConnectHubProfiles
+    );
+}
+
+const searchProfilesContainer = document.getElementById("Profiles");
+
+if (searchProfilesContainer) {
+    const searchProfilesObserver = new MutationObserver(function() {
+        searchConnectHubProfiles();
+    });
+
+    searchProfilesObserver.observe(searchProfilesContainer, {
+        childList: true
+    });
+}
+
+searchConnectHubProfiles();
+
 </script>
 <!-- FIREBASE -->
 
