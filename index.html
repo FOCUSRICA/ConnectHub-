@@ -394,6 +394,39 @@
     </form>
 </section>
 
+<!-- CONNECTHUB CREATE ACCOUNT -->
+<section id="register" class="create-profile">
+    <h2>Create Your ConnectHub Account</h2>
+    <p>Join ConnectHub and find your connection.</p>
+
+    <form id="register-form">
+        <label for="register-email">Email address</label>
+        <input
+            type="email"
+            id="register-email"
+            name="email"
+            placeholder="Enter your email"
+            autocomplete="email"
+            required
+        >
+
+        <label for="register-password">Password</label>
+        <input
+            type="password"
+            id="register-password"
+            name="password"
+            placeholder="Create a password (at least 6 characters)"
+            autocomplete="new-password"
+            minlength="6"
+            required
+        >
+
+        <button type="submit">Create Account</button>
+
+        <p id="register-feedback" role="status"></p>
+    </form>
+</section>
+
 
     <!-- Footer -->
 
