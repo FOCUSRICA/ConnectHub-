@@ -1096,5 +1096,25 @@ html {
     -webkit-tap-highlight-color: transparent;
 }
 
+/* CONNECTHUB LOGO POLISH */
+.navbar .logo {
+    text-decoration: none;
+    border-bottom: none;
+    color: #e91e63;
+    font-weight: 800;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.navbar .logo:hover {
+    text-decoration: none;
+    color: #c2185b;
+    transform: scale(1.03);
+}
+
+.navbar .logo:visited,
+.navbar .logo:focus {
+    text-decoration: none;
+}
+
 
 }
