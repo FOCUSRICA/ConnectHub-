@@ -2102,6 +2102,29 @@ if (loginForm && loginFeedback) {
 } else {
     console.error("ConnectHub login form or feedback element was not found.");
 }
+    
+/* RESTORE CONNECTHUB LOGIN STATUS */
+
+onAuthStateChanged(auth, function(user) {
+
+    if (!loginFeedback) {
+        return;
+    }
+
+    if (user && !user.isAnonymous) {
+
+        loginFeedback.textContent =
+            "Welcome back! You are signed in successfully.";
+
+    } else {
+
+        loginFeedback.textContent =
+            "Please sign in with your email to access your account.";
+
+    }
+
+});
+
  
 </script>
 
