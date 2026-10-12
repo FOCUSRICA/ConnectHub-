@@ -158,7 +158,7 @@
     <option value="age">Age: Youngest</option>
 </select>
 </div>
-// PROFILE SEARCH + FILTERS + SORTING
+        
 <div class="profile-discovery-tools">
 
     <h2>People You May Like 💗</h2>
@@ -1648,6 +1648,7 @@ function filterProfiles() {
     const selectedLookingFor = profileFilter
         ? profileFilter.value.toLowerCase()
         : "all";
+    console.log("Search is running:", searchText);
 
     const cards = profilesContainer.querySelectorAll(".profile-card");
     let visibleCount = 0;
