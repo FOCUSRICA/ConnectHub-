@@ -693,40 +693,55 @@ const isOwner =
         if (!isOwner) {
     deleteButton.style.display = "none";
 }
-    deleteButton.addEventListener("click", function() {
+  
+deleteButton.addEventListener("click", async function() {
 
-        const confirmDelete =
-            confirm(
-                "Are you sure you want to delete this profile?"
-            );
+    const confirmDelete = confirm(
+        "Are you sure you want to delete this profile?"
+    );
 
-        if (!confirmDelete) {
-            return;
+    if (!confirmDelete) {
+        return;
+    }
+
+    try {
+        // Delete from Firebase first
+        if (typeof window.deleteProfileFromFirebase !== "function") {
+            throw new Error("Firebase delete function is missing.");
         }
 
+        await window.deleteProfileFromFirebase(profile);
+
         // Remove from savedProfiles
-        const profileIndex =
-            savedProfiles.findIndex(function(savedProfile) {
-
-                return savedProfile.createdAt === profile.createdAt;
-
-            });
+        const profileIndex = savedProfiles.findIndex(function(savedProfile) {
+            return String(savedProfile.createdAt) ===
+                   String(profile.createdAt);
+        });
 
         if (profileIndex !== -1) {
-
             savedProfiles.splice(profileIndex, 1);
 
             localStorage.setItem(
                 "connectHubProfiles",
                 JSON.stringify(savedProfiles)
             );
-
         }
 
         // Remove from the page
         profileCard.remove();
 
-    });
+        console.log("Profile deleted successfully.");
+
+    } catch (error) {
+        console.error("ConnectHub profile deletion failed:", error);
+
+        alert(
+            "Could not delete this profile. Please check your sign-in and Firebase permissions."
+        );
+    }
+
+});
+
 // EDIT PROFILE
 
 const editButton =
@@ -1755,7 +1770,8 @@ import {
     onValue,
     onDisconnect,
     set,
-    serverTimestamp
+    serverTimestamp,
+    remove
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-database.js";
 
 
@@ -1802,6 +1818,27 @@ window.connectHubLogin = function(email, password) {
 };
 
    const db = getDatabase(app);
+    
+/* DELETE CONNECTHUB PROFILE FROM FIREBASE */
+window.deleteProfileFromFirebase = function(profile) {
+
+    return window.connectHubUserReady.then(function(userCredential) {
+
+        const user = auth.currentUser || userCredential.user;
+
+        if (!user || user.isAnonymous) {
+            throw new Error(
+                "Please sign in with your email account before deleting a profile."
+            );
+        }
+
+        const profileId = String(profile.createdAt);
+        const profileRef = ref(db, "profiles/" + profileId);
+
+        return remove(profileRef);
+    });
+};
+
 
 window.connectHubDB = db;
 window.connectHubRef = ref;
@@ -2058,6 +2095,15 @@ window.saveProfileToFirebase = function(profile) {
                 "ConnectHub Firebase user:",
                 uid
             );
+            // DELETE PROFILE FROM FIREBASE
+window.deleteProfileFromFirebase = function(profile) {
+    return window.connectHubUserReady.then(function(userCredential) {
+        const profileId = String(profile.createdAt);
+        const profileRef = ref(db, "profiles/" + profileId);
+
+        return remove(profileRef);
+    });
+};
 
             // Each profile gets its own Firebase record
             // using its existing createdAt value.
