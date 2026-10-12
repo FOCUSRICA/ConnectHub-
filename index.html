@@ -2160,6 +2160,67 @@ onAuthStateChanged(auth, function(user) {
 });
 
  
+/* CONNECTHUB REGISTRATION FORM */
+
+const registerForm = document.getElementById("register-form");
+const registerFeedback = document.getElementById("register-feedback");
+
+if (registerForm && registerFeedback) {
+    registerForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        const email = document.getElementById("register-email").value.trim();
+        const password = document.getElementById("register-password").value;
+
+        registerFeedback.textContent = "Creating your account...";
+
+        try {
+            const userCredential = await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+            window.connectHubUserId = userCredential.user.uid;
+            window.connectHubUserReady = Promise.resolve(userCredential);
+
+            loginFeedback.textContent =
+                "Welcome back! You are signed in successfully.";
+
+            registerFeedback.textContent =
+                "Account created successfully! You are now signed in.";
+
+            console.log(
+                "ConnectHub account created:",
+                userCredential.user.uid
+            );
+
+            registerForm.reset();
+
+        } catch (error) {
+            console.error("ConnectHub registration error:", error);
+
+            if (error.code === "auth/email-already-in-use") {
+                registerFeedback.textContent =
+                    "This email already has an account. Please sign in instead.";
+            } else if (error.code === "auth/invalid-email") {
+                registerFeedback.textContent =
+                    "Please enter a valid email address.";
+            } else if (error.code === "auth/weak-password") {
+                registerFeedback.textContent =
+                    "Please choose a stronger password.";
+            } else {
+                registerFeedback.textContent =
+                    "Account creation failed. Please try again.";
+            }
+        }
+    });
+} else {
+    console.error(
+        "ConnectHub registration form or feedback element was not found."
+    );
+}
+
 </script>
 
 <!-- PROFILE DETAILS MODAL -->
