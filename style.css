@@ -1785,4 +1785,195 @@ nav a[href*="#profiles"]:hover {
         font-size: 18px;
     }
 }
+/* ===== CONNECTHUB DISCOVER SECTION ===== */
+
+.dating-section {
+    width: 100%;
+    padding: 35px 16px 45px;
+    box-sizing: border-box;
+}
+
+/* Discover heading */
+.dating-section .page-header {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.dating-section .page-header > h1 {
+    margin: 0 0 12px;
+    color: #29212a;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.dating-section .page-header > p {
+    max-width: 560px;
+    margin: 0 auto 28px;
+    color: #6f6670;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Create profile form card */
+.dating-section .create-profile {
+    width: 100%;
+    max-width: 620px;
+    margin: 28px auto;
+    padding: 28px;
+    box-sizing: border-box;
+    text-align: left;
+
+    background: #ffffff;
+    border: 1px solid #f3dce5;
+    border-radius: 20px;
+    box-shadow: 0 8px 28px rgba(80, 30, 55, 0.07);
+}
+
+/* Form heading */
+.dating-section .create-profile h2 {
+    margin: 0 0 24px;
+    color: #e91e63;
+    font-size: 24px;
+    font-weight: 800;
+    text-align: center;
+}
+
+/* Form labels */
+.dating-section .create-profile label {
+    display: block;
+    margin: 16px 0 7px;
+    color: #38303a;
+    font-size: 14px;
+    font-weight: 650;
+}
+
+/* Inputs, dropdowns and text areas */
+.dating-section .create-profile input:not([type="file"]),
+.dating-section .create-profile select,
+.dating-section .create-profile textarea {
+    display: block;
+    width: 100%;
+    min-height: 45px;
+    padding: 12px 13px;
+    box-sizing: border-box;
+
+    border: 1px solid #e5dce2;
+    border-radius: 10px;
+    background: #fff;
+    color: #302832;
+
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+/* Comfortable writing areas */
+.dating-section .create-profile textarea {
+    min-height: 100px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+/* Focus effect */
+.dating-section .create-profile input:focus,
+.dating-section .create-profile select:focus,
+.dating-section .create-profile textarea:focus {
+    border-color: #e91e63;
+    box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.10);
+}
+
+/* Photo upload area */
+.dating-section .create-profile .photo-upload {
+    margin-bottom: 22px;
+    padding: 18px;
+    border: 1px dashed #e8a7bf;
+    border-radius: 14px;
+    background: #fff7fa;
+    text-align: center;
+}
+
+.dating-section .create-profile .photo-upload label {
+    margin-top: 0;
+    color: #c2185b;
+    cursor: pointer;
+}
+
+.dating-section .create-profile .photo-upload input[type="file"] {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 12px auto;
+    font-size: 13px;
+}
+
+.dating-section .create-profile #photo-preview {
+    display: none;
+    width: 120px;
+    height: 120px;
+    margin: 14px auto 0;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f8bbd0;
+}
+
+/* Create profile button */
+.dating-section .create-profile #profile-submit-btn {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    margin-top: 24px;
+    padding: 13px 18px;
+
+    border: none;
+    border-radius: 12px;
+    background: #e91e63;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 750;
+    cursor: pointer;
+
+    box-shadow: 0 5px 14px rgba(233, 30, 99, 0.18);
+    transition: background 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.dating-section .create-profile #profile-submit-btn:hover {
+    background: #c2185b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(233, 30, 99, 0.23);
+}
+
+.dating-section .create-profile #profile-submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+    .dating-section {
+        padding: 25px 12px 35px;
+    }
+
+    .dating-section .page-header > p {
+        font-size: 14px;
+        margin-bottom: 22px;
+    }
+
+    .dating-section .create-profile {
+        padding: 20px 16px;
+        margin: 22px auto;
+        border-radius: 16px;
+    }
+
+    .dating-section .create-profile h2 {
+        font-size: 21px;
+    }
+}
 
