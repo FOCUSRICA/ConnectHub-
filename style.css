@@ -1151,4 +1151,112 @@ html {
     border-bottom: none !important;
 }
 
+/* =========================
+   CONNECTHUB HERO SECTION
+========================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 440px;
+    margin: 24px auto;
+    padding: 70px 24px;
+    width: min(90%, 1100px);
+    text-align: center;
+    border-radius: 28px;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255, 182, 193, 0.45), transparent 35%),
+        radial-gradient(circle at 85% 80%, rgba(233, 30, 99, 0.12), transparent 35%),
+        linear-gradient(135deg, #fff8fb, #ffffff 55%, #fff0f5);
+    box-shadow: 0 15px 45px rgba(80, 30, 50, 0.08);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    animation: heroFadeIn 0.8s ease both;
+}
+
+.hero h1 {
+    margin: 0 0 22px;
+    color: #29212a;
+    font-size: clamp(2.1rem, 5vw, 3.7rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: #6d626b;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.8;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 28px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ec407a, #d81b60);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 22px rgba(216, 27, 96, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-button:hover {
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(216, 27, 96, 0.35);
+}
+
+.hero-button:active {
+    transform: scale(0.97);
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        width: calc(100% - 24px);
+        min-height: 360px;
+        margin: 16px auto;
+        padding: 50px 20px;
+        border-radius: 22px;
+    }
+
+    .hero h1 {
+        letter-spacing: -0.7px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-content {
+        animation: none;
+    }
+
+    .hero-button {
+        transition: none;
+    }
+}
+
 
