@@ -1386,5 +1386,67 @@ html {
         transform: none;
     }
 }
+/* ===== CONNECTHUB NAVIGATION IMPROVEMENT ===== */
 
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px 20px;
+    background: #ffffff;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 11px 17px;
+    border-radius: 25px;
+    color: #333333;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+}
+
+nav a:hover {
+    background: #fce4ec;
+    color: #e91e63;
+    transform: translateY(-2px);
+}
+
+/* Highlight the ConnectHub connection section */
+nav a[href*="#profiles"] {
+    background: #e91e63;
+    color: #ffffff;
+}
+
+nav a[href*="#profiles"]:hover {
+    background: #c2185b;
+    color: #ffffff;
+}
+
+/* Phone screens */
+@media (max-width: 600px) {
+    nav {
+        gap: 5px;
+        padding: 10px 6px;
+    }
+
+    nav a {
+        padding: 9px 10px;
+        font-size: 13px;
+        gap: 4px;
+    }
+}
 
