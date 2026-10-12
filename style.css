@@ -1118,3 +1118,20 @@ html {
 
 
 }
+
+/* CONNECTHUB LOGO POLISH */
+.navbar .logo,
+.navbar .logo:visited,
+.navbar .logo:hover,
+.navbar .logo:focus {
+    text-decoration: none !important;
+    border-bottom: none;
+    color: #e91e63;
+    font-weight: 800;
+}
+
+.navbar .logo:hover {
+    color: #c2185b;
+    transform: scale(1.03);
+}
+
