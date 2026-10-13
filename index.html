@@ -2230,7 +2230,35 @@ document.querySelectorAll(".nav-links .nav-link").forEach(function(link) {
 
         link.classList.add("active");
     });
-});</script>
+});
+```javascript
+/* CONNECTHUB SHOW/HIDE PASSWORD */
+
+document.querySelectorAll(".toggle-password").forEach(function(button) {
+    button.addEventListener("click", function() {
+        const targetId = button.dataset.target;
+        const passwordInput = document.getElementById(targetId);
+
+        if (!passwordInput) return;
+
+        const showingPassword = passwordInput.type === "password";
+
+        passwordInput.type = showingPassword ? "text" : "password";
+
+        button.textContent = showingPassword ? "🙈" : "👁️";
+
+        button.setAttribute(
+            "aria-label",
+            showingPassword ? "Hide password" : "Show password"
+        );
+
+        button.setAttribute(
+            "aria-pressed",
+            String(showingPassword)
+        );
+    });
+});
+</script>
 
 </body>
 
