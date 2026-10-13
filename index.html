@@ -700,12 +700,14 @@ function createProfileCard(profile) {
 
     `;
 
-
 const currentFirebaseUid =
     window.connectHubUserId || "";
 
+const profileOwnerUid =
+    profile.ownerUid || profile.firebaseUid || "";
+
 const isOwner =
-    profile.ownerUid === currentFirebaseUid;
+    profileOwnerUid === currentFirebaseUid;
 
     // DELETE PROFILE
     const deleteButton =
