@@ -132,13 +132,23 @@
     <h2>People You May Like 💗</h2>
 
     <p>Find people who share your interests.</p>
-    <div class="profile-search-bar">
+  
+<div class="profile-search-bar">
     <input
         type="search"
         id="profile-search"
-        placeholder="Search profiles by name or location..."
+        placeholder="🔍 Search by name, location or interests..."
         aria-label="Search profiles"
     >
+
+    <select id="profile-filter" aria-label="Filter by looking for">
+        <option value="all">Looking for: All</option>
+        <option value="friendship">Friendship</option>
+        <option value="relationship">Relationship</option>
+        <option value="casual dating">Casual dating</option>
+        <option value="something serious">Something serious</option>
+        <option value="networking">Networking</option>
+    </select>
 </div>
 
     <p id="profile-results-count" aria-live="polite"></p>
@@ -1557,28 +1567,54 @@ window.loadProfilesFromFirebase = function() {
 
 };
     
+
 /* CONNECTHUB PROFILE SEARCH */
 
 const profileSearchBox = document.getElementById("profile-search");
+const profileLookingFilter = document.getElementById("profile-filter");
+const searchProfilesContainer = document.getElementById("Profiles");
 
 function searchConnectHubProfiles() {
-    const container = document.getElementById("Profiles");
-    if (!container || !profileSearchBox) return;
+    if (!searchProfilesContainer) return;
 
-    const searchText = profileSearchBox.value
-        .toLowerCase()
-        .trim();
+    const searchText = profileSearchBox
+        ? profileSearchBox.value.toLowerCase().trim()
+        : "";
 
-    const cards = container.querySelectorAll(".profile-card");
+    const selectedLookingFor = profileLookingFilter
+        ? profileLookingFilter.value.toLowerCase()
+        : "all";
+
+    const cards = searchProfilesContainer.querySelectorAll(".profile-card");
     let visibleCount = 0;
 
     cards.forEach(function(card) {
         const profileText = card.textContent.toLowerCase();
-        const matches = profileText.includes(searchText);
 
-        card.style.display = matches ? "" : "none";
+        // Find the Looking For information on the profile card.
+        const lookingTag = Array.from(
+            card.querySelectorAll(".interests span")
+        ).find(function(tag) {
+            return tag.textContent.includes("🎯");
+        });
 
-        if (matches) visibleCount++;
+        const lookingText = lookingTag
+            ? lookingTag.textContent.replace("🎯", "").trim().toLowerCase()
+            : "";
+
+        const matchesSearch = profileText.includes(searchText);
+
+        const matchesLookingFor =
+            selectedLookingFor === "all" ||
+            lookingText.includes(selectedLookingFor);
+
+        const shouldShow = matchesSearch && matchesLookingFor;
+
+        card.style.display = shouldShow ? "" : "none";
+
+        if (shouldShow) {
+            visibleCount++;
+        }
     });
 
     const counter = document.getElementById("profile-results-count");
@@ -1591,14 +1627,14 @@ function searchConnectHubProfiles() {
 }
 
 if (profileSearchBox) {
-    profileSearchBox.addEventListener(
-        "input",
-        searchConnectHubProfiles
-    );
+    profileSearchBox.addEventListener("input", searchConnectHubProfiles);
 }
 
-const searchProfilesContainer = document.getElementById("Profiles");
+if (profileLookingFilter) {
+    profileLookingFilter.addEventListener("change", searchConnectHubProfiles);
+}
 
+// Reapply the search when new profiles load.
 if (searchProfilesContainer) {
     const searchProfilesObserver = new MutationObserver(function() {
         searchConnectHubProfiles();
@@ -1610,6 +1646,7 @@ if (searchProfilesContainer) {
 }
 
 searchConnectHubProfiles();
+
 
 </script>
 <!-- FIREBASE -->
