@@ -2950,5 +2950,169 @@ button:disabled {
     background: #e91e63;
     color: #ffffff;
 }
+/* CONNECTHUB — COMPACT SIGN IN & REGISTER */
 
+/* Center the authentication sections */
+#login,
+#register {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 480px;
+    margin: 28px auto;
+    padding: 22px;
+    color: #f5f5f7;
+    background: #0b0b0f;
+}
+
+/* Clear, readable headings */
+#login h2,
+#register h2 {
+    margin: 0 0 10px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 24px;
+    line-height: 1.3;
+}
+
+#register > p {
+    color: #d5d5de;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 0 18px;
+}
+
+/* Compact authentication card */
+#login #login-form,
+#register #register-form {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 22px;
+    background: #16161e;
+    border: 1px solid #30303b;
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Labels */
+#login-form label,
+#register-form label {
+    display: block;
+    margin: 0 0 7px;
+    color: #f1f1f5;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Email and password fields */
+#login-form input,
+#register-form input {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    margin: 0 0 16px;
+    padding: 11px 12px;
+    background: #22222c;
+    color: #ffffff;
+    border: 1px solid #41414d;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+#login-form input::placeholder,
+#register-form input::placeholder {
+    color: #b7b7c3;
+    opacity: 1;
+}
+
+#login-form input:focus,
+#register-form input:focus {
+    outline: 2px solid #e91e63;
+    outline-offset: 1px;
+    border-color: #e91e63;
+}
+
+/* Keep the eye button visible inside the password field */
+#login-form .password-wrapper,
+#register-form .password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+#login-form .password-wrapper input,
+#register-form .password-wrapper input {
+    padding-right: 48px;
+}
+
+#login-form .password-wrapper .toggle-password,
+#register-form .password-wrapper .toggle-password {
+    position: absolute;
+    top: 0;
+    right: 4px;
+    height: 40px;
+    width: 40px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #ff80ab;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    font-size: 18px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Main Sign In and Create Account buttons */
+#login-form > button[type="submit"],
+#register-form > button[type="submit"] {
+    display: block;
+    width: 100%;
+    margin: 2px 0 0;
+    padding: 11px 14px;
+    background: #e91e63;
+    color: #ffffff;
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#login-form > button[type="submit"]:hover,
+#register-form > button[type="submit"]:hover {
+    background: #d81b60;
+}
+
+/* Authentication feedback messages */
+#login-feedback,
+#register-feedback {
+    margin: 12px 0 0;
+    color: #f5f5f7;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+/* Fit smaller phone screens */
+@media (max-width: 520px) {
+    #login,
+    #register {
+        margin: 12px auto;
+        padding: 12px;
+    }
+
+    #login #login-form,
+    #register #register-form {
+        padding: 18px;
+    }
+
+    #login h2,
+    #register h2 {
+        font-size: 21px;
+    }
+}
 
