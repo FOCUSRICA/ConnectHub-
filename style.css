@@ -2119,5 +2119,44 @@ nav a[href*="#profiles"]:hover {
 .password-wrapper .toggle-password:hover {
     opacity: 0.75;
 }
-```
+
+/* FIX CONNECTHUB PASSWORD EYE BUTTON */
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 45px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+}
+
+.toggle-password:hover {
+    background: transparent;
+    color: #e91e63;
+}
+
 
