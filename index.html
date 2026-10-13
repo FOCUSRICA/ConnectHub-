@@ -2089,21 +2089,14 @@ if (loginForm && loginFeedback) {
 
 onAuthStateChanged(auth, function(user) {
 
-    if (!loginFeedback) {
-        return;
-    }
-
-    if (user && !user.isAnonymous) {
-
-        loginFeedback.textContent =
-            "Welcome back! You are signed in successfully.";
-
-    } else {
-
-        loginFeedback.textContent =
-            "Please sign in with your email to access your account.";
-
-    }
+if (user && !user.isAnonymous) {
+    // Firebase has an authenticated user.
+    // Don't display a login success message automatically.
+    // The login form will show that message after an actual login.
+} else {
+    loginFeedback.textContent =
+        "Please sign in with your email to access your account.";
+}
 
 });
 
@@ -2132,11 +2125,14 @@ if (registerForm && registerFeedback) {
             window.connectHubUserId = userCredential.user.uid;
             window.connectHubUserReady = Promise.resolve(userCredential);
 
-            loginFeedback.textContent =
-                "Welcome back! You are signed in successfully.";
+            ```js
+registerFeedback.textContent =
+    "🎉 Welcome to ConnectHub! Your account has been created successfully.";
 
-            registerFeedback.textContent =
-                "Account created successfully! You are now signed in.";
+if (loginFeedback) {
+    loginFeedback.textContent = "";
+}
+```
 
             console.log(
                 "ConnectHub account created:",
