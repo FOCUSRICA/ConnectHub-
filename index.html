@@ -2124,41 +2124,59 @@ if (user && !user.isAnonymous) {
 });
 
  
+
 /* CONNECTHUB REGISTRATION FORM */
 
-const registerForm = document.getElementById("register-form");
-const registerFeedback = document.getElementById("register-feedback");
+document.addEventListener("DOMContentLoaded", function() {
 
-if (registerForm && registerFeedback) {
+    const registerForm =
+        document.getElementById("register-form");
+
+    const registerFeedback =
+        document.getElementById("register-feedback");
+
+    if (!registerForm || !registerFeedback) {
+        console.error(
+            "ConnectHub registration form or feedback element was not found."
+        );
+        return;
+    }
+
     registerForm.addEventListener("submit", async function(event) {
         event.preventDefault();
 
-        const email = document.getElementById("register-email").value.trim();
-        const password = document.getElementById("register-password").value;
+        const email =
+            document.getElementById("register-email").value.trim();
+
+        const password =
+            document.getElementById("register-password").value;
 
         registerFeedback.textContent = "Creating your account...";
 
         try {
             if (typeof window.connectHubRegister !== "function") {
-    throw new Error("Firebase registration is not ready.");
-}
+                throw new Error(
+                    "Firebase registration is not ready. Please refresh."
+                );
+            }
 
-const userCredential = await window.connectHubRegister(
-    email,
-    password
-);
+            const userCredential =
+                await window.connectHubRegister(email, password);
+
             window.connectHubUserId = userCredential.user.uid;
-            window.connectHubUserReady = Promise.resolve(userCredential);
-            
-registerFeedback.textContent =
-    "🎉 Welcome to ConnectHub! Your account has been created successfully.";
+            window.connectHubUserReady =
+                Promise.resolve(userCredential);
 
-const loginFeedbackElement =
-    document.getElementById("login-feedback");
+            registerFeedback.textContent =
+                "🎉 Welcome to ConnectHub! Your account has been created successfully.";
 
-if (loginFeedbackElement) {
-    loginFeedbackElement.textContent = "";
-}
+            const loginFeedback =
+                document.getElementById("login-feedback");
+
+            if (loginFeedback) {
+                loginFeedback.textContent = "";
+            }
+
             console.log(
                 "ConnectHub account created:",
                 userCredential.user.uid
@@ -2180,10 +2198,14 @@ if (loginFeedbackElement) {
                     "Please choose a stronger password.";
             } else {
                 registerFeedback.textContent =
-                    "Account creation failed. Please try again.";
+                    "Account creation failed: " +
+                    (error.message || "Please try again.");
             }
         }
     });
+
+});
+
 } else {
     console.error(
         "ConnectHub registration form or feedback element was not found."
