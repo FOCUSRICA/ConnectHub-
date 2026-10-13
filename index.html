@@ -2228,32 +2228,34 @@ document.querySelectorAll(".nav-links .nav-link").forEach(function(link) {
         link.classList.add("active");
     });
 });
-```javascript
+
 /* CONNECTHUB SHOW/HIDE PASSWORD */
 
-document.querySelectorAll(".toggle-password").forEach(function(button) {
-    button.addEventListener("click", function() {
-        const targetId = button.dataset.target;
-        const passwordInput = document.getElementById(targetId);
+document.addEventListener("click", function(event) {
+    const button = event.target.closest(".toggle-password");
 
-        if (!passwordInput) return;
+    if (!button) return;
 
-        const showingPassword = passwordInput.type === "password";
+    const targetId = button.dataset.target;
+    const passwordInput = document.getElementById(targetId);
 
-        passwordInput.type = showingPassword ? "text" : "password";
+    if (!passwordInput) return;
 
-        button.textContent = showingPassword ? "🙈" : "👁️";
+    const showingPassword = passwordInput.type === "password";
 
-        button.setAttribute(
-            "aria-label",
-            showingPassword ? "Hide password" : "Show password"
-        );
+    passwordInput.type = showingPassword ? "text" : "password";
 
-        button.setAttribute(
-            "aria-pressed",
-            String(showingPassword)
-        );
-    });
+    button.textContent = showingPassword ? "🙈" : "👁️";
+
+    button.setAttribute(
+        "aria-label",
+        showingPassword ? "Hide password" : "Show password"
+    );
+
+    button.setAttribute(
+        "aria-pressed",
+        String(showingPassword)
+    );
 });
 </script>
 
