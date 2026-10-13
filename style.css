@@ -3219,3 +3219,42 @@ button:disabled {
     background: #e91e63;
     color: #ffffff;
     text-decoration:
+/* CONNECTHUB — STRONGER FEATURE TEXT CONTRAST */
+
+.features h2,
+.features .feature-card h3,
+.cta h2 {
+    color: #17121f !important;
+    opacity: 1 !important;
+    font-weight: 700;
+}
+
+.features .feature-card p,
+.cta p {
+    color: #302a38 !important;
+    opacity: 1 !important;
+    font-weight: 400;
+}
+
+.features .feature-card,
+.features .feature-card *,
+.cta,
+.cta * {
+    text-shadow: none;
+}
+
+.features .feature-card {
+    background: #ffffff !important;
+}
+
+.features,
+.cta {
+    opacity: 1 !important;
+}
+
+.cta a {
+    background: #e91e63 !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+    font-weight: 700;
+}
