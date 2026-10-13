@@ -2383,4 +2383,168 @@ a:focus-visible {
     outline-offset: 3px;
 }
 
+/* ===== CONNECTHUB DARK AUTHENTICATION THEME ===== */
+
+body:has(#login-form),
+body:has(#register-form),
+body:has(#signin-form),
+body:has(#signup-form) {
+    background: #0b0b0f;
+    color: #f5f5f7;
+}
+
+/* Sign In and Register cards */
+#login-form,
+#register-form,
+#signin-form,
+#signup-form,
+.auth-form {
+    background: #15151c;
+    color: #f5f5f7;
+    border: 1px solid #30202a;
+    border-radius: 18px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    padding: 28px;
+}
+
+/* Form headings */
+#login-form h1,
+#login-form h2,
+#register-form h1,
+#register-form h2,
+#signin-form h1,
+#signin-form h2,
+#signup-form h1,
+#signup-form h2,
+.auth-form h1,
+.auth-form h2 {
+    color: #ffffff;
+}
+
+/* Input labels */
+#login-form label,
+#register-form label,
+#signin-form label,
+#signup-form label,
+.auth-form label {
+    color: #d7d2dc;
+}
+
+/* Input fields */
+#login-form input,
+#register-form input,
+#signin-form input,
+#signup-form input,
+.auth-form input {
+    background: #202029;
+    color: #ffffff;
+    border: 1px solid #41404b;
+    border-radius: 10px;
+}
+
+/* Placeholder text */
+#login-form input::placeholder,
+#register-form input::placeholder,
+#signin-form input::placeholder,
+#signup-form input::placeholder,
+.auth-form input::placeholder {
+    color: #96919f;
+    opacity: 1;
+}
+
+/* Pink focus effect */
+#login-form input:focus,
+#register-form input:focus,
+#signin-form input:focus,
+#signup-form input:focus,
+.auth-form input:focus {
+    background: #202029;
+    border-color: #e91e63;
+    box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.16);
+    outline: none;
+}
+
+/* Pink submit buttons */
+#login-form button[type="submit"],
+#register-form button[type="submit"],
+#signin-form button[type="submit"],
+#signup-form button[type="submit"],
+.auth-form button[type="submit"] {
+    background: #e91e63;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    min-height: 46px;
+    font-weight: 700;
+    transition: background 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
+}
+
+#login-form button[type="submit"]:hover,
+#register-form button[type="submit"]:hover,
+#signin-form button[type="submit"]:hover,
+#signup-form button[type="submit"]:hover,
+.auth-form button[type="submit"]:hover {
+    background: #ff4081;
+    box-shadow: 0 5px 20px rgba(233, 30, 99, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Form links */
+#login-form a,
+#register-form a,
+#signin-form a,
+#signup-form a,
+.auth-form a {
+    color: #ff4081;
+}
+
+#login-form a:hover,
+#register-form a:hover,
+#signin-form a:hover,
+#signup-form a:hover,
+.auth-form a:hover {
+    color: #ff80ab;
+}
+
+/* Password eye button */
+.password-wrapper .toggle-password {
+    background: transparent;
+    color: #ff80ab;
+    border: none;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+}
+
+.password-wrapper .toggle-password:hover {
+    background: rgba(233, 30, 99, 0.14);
+    color: #ff4081;
+    box-shadow: none;
+}
+
+/* Mobile layout */
+@media (max-width: 480px) {
+    #login-form,
+    #register-form,
+    #signin-form,
+    #signup-form,
+    .auth-form {
+        padding: 22px 18px;
+        border-radius: 15px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    #login-form,
+    #register-form,
+    #signin-form,
+    #signup-form,
+    .auth-form {
+        animation: none;
+    }
+}
+
 
