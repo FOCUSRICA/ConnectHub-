@@ -2088,4 +2088,36 @@ nav a[href*="#profiles"]:hover {
         height: 46px;
     }
 }
+```css
+/* CONNECTHUB PASSWORD VISIBILITY */
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 50px;
+}
+
+.password-wrapper .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 6px;
+    width: auto;
+    color: #e91e63;
+}
+
+.password-wrapper .toggle-password:hover {
+    opacity: 0.75;
+}
+```
 
