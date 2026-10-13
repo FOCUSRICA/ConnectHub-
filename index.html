@@ -2143,16 +2143,16 @@ if (registerForm && registerFeedback) {
 
             window.connectHubUserId = userCredential.user.uid;
             window.connectHubUserReady = Promise.resolve(userCredential);
-
-            ```js
+            
 registerFeedback.textContent =
     "🎉 Welcome to ConnectHub! Your account has been created successfully.";
 
-if (loginFeedback) {
-    loginFeedback.textContent = "";
-}
-```
+const loginFeedbackElement =
+    document.getElementById("login-feedback");
 
+if (loginFeedbackElement) {
+    loginFeedbackElement.textContent = "";
+}
             console.log(
                 "ConnectHub account created:",
                 userCredential.user.uid
