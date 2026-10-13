@@ -1738,6 +1738,10 @@ window.connectHubLogin = function(email, password) {
         });
 };
 
+window.connectHubRegister = function(email, password) {
+    return createUserWithEmailAndPassword(auth, email, password);
+};
+
    const db = getDatabase(app);
     
 /* DELETE CONNECTHUB PROFILE FROM FIREBASE */
@@ -2135,12 +2139,14 @@ if (registerForm && registerFeedback) {
         registerFeedback.textContent = "Creating your account...";
 
         try {
-            const userCredential = await createUserWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
+            if (typeof window.connectHubRegister !== "function") {
+    throw new Error("Firebase registration is not ready.");
+}
 
+const userCredential = await window.connectHubRegister(
+    email,
+    password
+);
             window.connectHubUserId = userCredential.user.uid;
             window.connectHubUserReady = Promise.resolve(userCredential);
             
