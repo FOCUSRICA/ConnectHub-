@@ -2708,4 +2708,177 @@ body:has(#signup-form) {
     }
 }
 
+/* ===== CONNECTHUB REGISTER — PREMIUM DARK DESIGN ===== */
+
+#register {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 55px 20px;
+    background: #0b0b0f;
+    color: #ffffff;
+}
+
+/* Register heading */
+#register > h2 {
+    max-width: 420px;
+    margin: 0 auto 12px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 750;
+    letter-spacing: -0.6px;
+    line-height: 1.3;
+}
+
+/* Introductory text */
+#register > p {
+    max-width: 420px;
+    margin: 0 auto 25px;
+    text-align: center;
+    color: #aaa4b2;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Register form card */
+#register #register-form {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
+    background: #16161e;
+    border: 1px solid #30202a;
+    border-radius: 18px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* Labels */
+#register #register-form label {
+    display: block;
+    margin: 15px 0 8px;
+    color: #e5dfe8;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Email and password fields */
+#register #register-form input {
+    width: 100%;
+    min-height: 47px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    background: #22222c;
+    border: 1px solid #41404b;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Pink focus effect */
+#register #register-form input:focus {
+    border-color: #e91e63;
+    box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.14);
+}
+
+/* Placeholder text */
+#register #register-form input::placeholder {
+    color: #96919f;
+    opacity: 1;
+}
+
+/* Password wrapper */
+#register .password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Space for eye icon */
+#register .password-wrapper input {
+    padding-right: 52px;
+}
+
+/* Password eye button */
+#register .password-wrapper .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #ff80ab;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+#register .password-wrapper .toggle-password:hover {
+    background: rgba(233, 30, 99, 0.15);
+    color: #ff4081;
+    transform: translateY(-50%);
+}
+
+/* Create Account button */
+#register #register-form > button[type="submit"] {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 23px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #e91e63;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s,
+                transform 0.2s;
+}
+
+#register #register-form > button[type="submit"]:hover {
+    background: #ff4081;
+    box-shadow: 0 5px 20px rgba(233, 30, 99, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Registration feedback */
+#register #register-feedback {
+    color: #e5dfe8;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* Mobile layout */
+@media (max-width: 480px) {
+    #register {
+        padding: 38px 15px;
+    }
+
+    #register > h2 {
+        font-size: 24px;
+    }
+
+    #register #register-form {
+        padding: 23px 19px;
+        border-radius: 15px;
+    }
+}
+
 
