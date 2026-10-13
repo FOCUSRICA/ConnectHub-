@@ -2325,4 +2325,62 @@ nav a[href*="#profiles"]:hover {
     }
 }
 
+/* ===== CONNECTHUB AUTH PAGE BACKGROUND ===== */
+
+body:has(#login-form),
+body:has(#register-form),
+body:has(#signin-form),
+body:has(#signup-form) {
+    background: linear-gradient(135deg, #fff5f8 0%, #f7f3ff 100%);
+}
+
+/* Form entrance animation */
+#login-form,
+#register-form,
+#signin-form,
+#signup-form,
+.auth-form {
+    animation: authFormAppear 0.55s ease-out;
+}
+
+@keyframes authFormAppear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Smooth form links */
+#login-form a,
+#register-form a,
+#signin-form a,
+#signup-form a,
+.auth-form a {
+    color: #e91e63;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+#login-form a:hover,
+#register-form a:hover,
+#signin-form a:hover,
+#signup-form a:hover,
+.auth-form a:hover {
+    color: #ad1457;
+    text-decoration: underline;
+}
+
+/* Clear keyboard focus */
+.toggle-password:focus-visible,
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid rgba(233, 30, 99, 0.35);
+    outline-offset: 3px;
+}
+
 
