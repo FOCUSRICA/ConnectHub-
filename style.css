@@ -2881,4 +2881,74 @@ body:has(#signup-form) {
     }
 }
 
+/* ===== CONNECTHUB TEXT VISIBILITY FIX ===== */
+
+/* Main text on dark backgrounds */
+body {
+    color: #f5f5f7;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+}
+
+/* Paragraphs and common text */
+p, li, label, legend {
+    color: #e5e5eb;
+}
+
+/* Form feedback and helper text */
+#login-feedback,
+#register-feedback {
+    color: #f5f5f7;
+}
+
+/* Text inside form fields */
+input,
+textarea,
+select {
+    color: #ffffff;
+}
+
+/* Placeholder text */
+input::placeholder,
+textarea::placeholder {
+    color: #aaa4b2;
+    opacity: 1;
+}
+
+/* Links */
+a {
+    color: #ff80ab;
+}
+
+a:hover {
+    color: #ff4081;
+}
+
+/* Text inside buttons */
+button {
+    color: #ffffff;
+}
+
+/* Keep the password eye visible */
+.toggle-password {
+    color: #ff80ab !important;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Disabled buttons remain readable */
+button:disabled {
+    color: #d8d8de;
+    opacity: 0.7;
+}
+
+/* Selection highlight */
+::selection {
+    background: #e91e63;
+    color: #ffffff;
+}
+
 
