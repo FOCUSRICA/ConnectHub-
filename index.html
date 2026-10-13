@@ -384,20 +384,28 @@
             required
         >
 
-        <label for="login-password">Password</label>
-        <input
-            type="password"
-            id="login-password"
-            placeholder="Enter your password"
-            required
-        >
+      ```html
+<label for="login-password">Password</label>
 
-        <button type="submit">Sign In</button>
+<div class="password-wrapper">
+    <input
+        type="password"
+        id="login-password"
+        placeholder="Enter your password"
+        required
+    >
 
-        <p id="login-feedback" role="status"></p>
-    </form>
-</section>
+    <button
+        type="button"
+        class="toggle-password"
+        data-target="login-password"
+        aria-label="Show password"
+        aria-pressed="false"
+    >👁️</button>
+</div>
+ <button type="submit">Sign In</button>
 
+<p id="login-feedback" role="status"></p>
 <!-- CONNECTHUB CREATE ACCOUNT -->
 <section id="register" class="create-profile">
     <h2>Create Your ConnectHub Account</h2>
@@ -414,16 +422,28 @@
             required
         >
 
-        <label for="register-password">Password</label>
-        <input
-            type="password"
-            id="register-password"
-            name="password"
-            placeholder="Create a password (at least 6 characters)"
-            autocomplete="new-password"
-            minlength="6"
-            required
-        >
+        ```html
+<label for="register-password">Password</label>
+
+<div class="password-wrapper">
+    <input
+        type="password"
+        id="register-password"
+        name="password"
+        placeholder="Create a password (at least 6 characters)"
+        autocomplete="new-password"
+        minlength="6"
+        required
+    >
+
+    <button
+        type="button"
+        class="toggle-password"
+        data-target="register-password"
+        aria-label="Show password"
+        aria-pressed="false"
+    >👁️</button>
+</div>
 
         <button type="submit">Create Account</button>
 
