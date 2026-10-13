@@ -3386,84 +3386,112 @@ button:disabled {
 .cta {
     overflow-wrap: break-word;
 }
-/* CONNECTHUB — VERTICAL FEATURE CARDS ON PHONES */
+/* CONNECTHUB — HORIZONTAL FEATURE CARDS */
 
+.features {
+    background: #0b0b0f !important;
+    padding: 32px 16px !important;
+    box-sizing: border-box;
+}
+
+.features h2 {
+    color: #ffffff !important;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 22px !important;
+}
+
+.feature-container {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 14px !important;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Compact cards on larger screens */
+.feature-card {
+    flex: 1 1 0;
+    min-width: 0;
+    box-sizing: border-box;
+    background: #191923 !important;
+    border: 1px solid #30303d !important;
+    border-radius: 12px;
+    padding: 20px 14px !important;
+    text-align: center;
+}
+
+.features .feature-card h3 {
+    color: #ffffff !important;
+    font-size: 16px !important;
+}
+
+.features .feature-card p {
+    color: #d0ced9 !important;
+    font-size: 14px !important;
+    line-height: 1.5;
+}
+
+.feature-icon {
+    font-size: 27px !important;
+}
+
+/* Horizontal swipe layout on phones */
 @media screen and (max-width: 600px) {
-
     .features {
-        padding: 26px 14px !important;
-        background: #0b0b0f !important;
-        box-sizing: border-box;
+        padding: 26px 0 26px 16px !important;
     }
 
     .features h2 {
-        text-align: center !important;
-        font-size: 23px !important;
-        margin-bottom: 20px !important;
+        text-align: left;
+        padding-right: 16px;
+        font-size: 23px;
     }
 
     .feature-container {
         display: flex !important;
-        flex-direction: column !important;
-        gap: 14px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        overflow: visible !important;
+        flex-direction: row !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 12px !important;
+        padding: 0 16px 12px 0;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
     }
 
     .feature-card {
-        flex: none !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        padding: 18px 16px !important;
-        background: #191923 !important;
-        border: 1px solid #30303d !important;
-        border-radius: 12px !important;
-        text-align: center;
-    }
-
-    .feature-icon {
-        font-size: 27px !important;
+        flex: 0 0 76%;
+        min-width: 0;
+        padding: 18px 14px !important;
+        scroll-snap-align: start;
     }
 
     .features .feature-card h3 {
-        color: #ffffff !important;
-        font-size: 17px !important;
-        margin: 10px 0 7px !important;
+        font-size: 16px !important;
     }
 
     .features .feature-card p {
-        color: #d0ced9 !important;
-        font-size: 14px !important;
-        line-height: 1.6 !important;
-        margin: 0 !important;
-    }
-
-    .cta {
-        padding: 28px 16px !important;
-        background: #111119 !important;
-        text-align: center;
-        box-sizing: border-box;
-    }
-
-    .cta h2 {
-        color: #ffffff !important;
-        font-size: 22px !important;
-        line-height: 1.4;
-    }
-
-    .cta p {
-        color: #d0ced9 !important;
         font-size: 14px !important;
     }
+}
 
-    .cta a {
-        display: inline-block;
-        background: #e91e63 !important;
-        color: #ffffff !important;
-        padding: 12px 22px;
-        border-radius: 8px;
-    }
+/* Matching call-to-action section */
+.cta {
+    background: #111119 !important;
+    color: #ffffff !important;
+    padding: 30px 16px !important;
+    text-align: center;
+}
+
+.cta h2 {
+    color: #ffffff !important;
+}
+
+.cta p {
+    color: #d0ced9 !important;
+}
+
+.cta a {
+    background: #e91e63 !important;
+    color: #ffffff !important;
 }
