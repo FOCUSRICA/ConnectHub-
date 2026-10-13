@@ -3115,4 +3115,31 @@ button:disabled {
         font-size: 21px;
     }
 }
+/* CONNECTHUB — FIX INVISIBLE FEATURE SECTION TEXT */
 
+#login ~ section,
+#register ~ section {
+    color: #292333;
+}
+
+/* Feature headings and descriptions */
+#login ~ section h2,
+#login ~ section h3,
+#login ~ section p,
+#register ~ section h2,
+#register ~ section h3,
+#register ~ section p {
+    color: #292333;
+}
+
+/* Feature icons */
+#login ~ section {
+    --feature-text-color: #292333;
+}
+
+/* Make the Explore Profiles link easy to see */
+#login ~ section a,
+#register ~ section a {
+    color: #e91e63;
+    font-weight: 600;
+}
